@@ -1,7 +1,26 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/HomePage';
+import About from './pages/AboutPage';
+import SingleProduct from './pages/SingleProductPage';
+import Products from './pages/ProductsPage';
+import Cart from './pages/CartPage';
+import Checkout from './pages/CheckoutPage';
+import Error from './pages/ErrorPage';
+
+
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='about' element={<About />} />
+        <Route path='products' element={<Products />} />
+        <Route path='products/:id' element={<SingleProduct />} />
+        <Route path='cart' element={<Cart />} />
+        <Route path='checkout' element={<Checkout />} />
+        <Route path='*' element={<Error />} />
+      </Routes>
+
+    </Router>
   )
 }
